@@ -1,0 +1,2 @@
+-1: Function login always return true;
+-2: $zone and $zoneData should validate before use
