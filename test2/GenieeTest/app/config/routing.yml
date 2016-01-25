@@ -1,3 +1,11 @@
+geniee_test_fruits:
+    resource: "@GenieeTestBundle/Controller/FruitsController.php"
+    type:     annotation
+
+geniee_test:
+    resource: "@GenieeTestBundle/Resources/config/routing.xml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

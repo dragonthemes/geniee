@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fruits edit</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td><input name="name" value="{{ fruit.name }}"></td>
+                </tr>
+                <tr>
+                    <td>Origin</td>
+                    <td><input name="origin" value="{{ fruit.origin }}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('fruits_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

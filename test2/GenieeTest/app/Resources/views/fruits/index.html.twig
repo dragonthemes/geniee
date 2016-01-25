@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fruits</h1>
+    {{ form_start(addnew_form) }}
+        
+    
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td><input name='name'></td>
+                </tr>
+                <tr>
+                    <td>Origin</td>
+                    <td><input name='origin'></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Submit"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+    {{ form_end(addnew_form) }}
+
+    <br>
+
+    <table class="list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Origin</th>
+                <th>Task</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fruit in fruits %}
+            <tr>
+                <td><span>{{ fruit.id }}</span></td>
+                <td><span">{{ fruit.name }}</span></td>
+                <td><span>{{ fruit.origin }}</span></td>
+                <td>
+                    <a href="{{ path('fruits_edit', { 'id': fruit.id }) }}">edit</a>
+                    <a href="{{ path('fruits_delete', { 'id': fruit.id }) }}">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
