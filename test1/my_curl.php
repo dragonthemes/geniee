@@ -2,11 +2,11 @@
 
 class myCURL
 {
-    var $headers;
-    var $user_agent;
-    var $compression;
-    var $cookie_file;
-    var $proxy;
+    protected $headers;
+    protected $user_agent;
+    protected $compression;
+    protected $cookie_file;
+    protected $proxy;
 
     public static function &get_instance()
     {
@@ -29,7 +29,7 @@ class myCURL
         if ($this->use_cookie == TRUE) $this->cookie($cookie_file);
     }
 
-    public function cookie($cookie_file)
+    protected function cookie($cookie_file)
     {
         if (file_exists($cookie_file)) {
             $this->cookie_file = $cookie_file;
@@ -86,7 +86,7 @@ class myCURL
         return $return;
     }
 
-    public function error($error)
+    protected function error($error)
     {
         echo "Error: <br><i>$error</i>";
         die;
