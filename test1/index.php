@@ -62,9 +62,7 @@ function collect_data_to_file()
 function collect_data_update_to_file()
 {
     $data = json_decode(get_source_after_update(), true);
-    usort($data, function ($a, $b) {
-        return strtotime(str_replace('/', '-', $a["date"])) - strtotime(str_replace('/', '-', $b["date"]));
-    });
+    usort($data, 'sortByDate');
     if (file_put_contents(DATA_UPDATE_FILE, json_encode($data)))
         echo '<p>Crawled data update is put to file data_update.json </p>';
 }

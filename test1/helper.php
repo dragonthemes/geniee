@@ -29,9 +29,11 @@ function scrape_data($html)
         }
     }
 
-    usort($data, function ($a, $b) {
-        return strtotime(str_replace('/', '-', $a["date"])) - strtotime(str_replace('/', '-', $b["date"]));
-    });
+    usort($data, 'sortByDate');
 
     return $data;
+}
+
+function sortByDate($a, $b) {
+    return strtotime(str_replace('/', '-', $a["date"])) - strtotime(str_replace('/', '-', $b["date"]));
 }
