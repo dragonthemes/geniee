@@ -8,6 +8,8 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('GenieeTestBundle:Default:index.html.twig');
+        //return $this->render('GenieeTestBundle:Default:index.html.twig');
+
+        return $this->redirectToRoute('fruits_index');
     }
 }
